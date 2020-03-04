@@ -1,0 +1,3 @@
+.o-pad {
+  @include all-directions(padding, $s-gutters);
+}

@@ -1,0 +1,82 @@
+$s-grid-size: 30px;
+$s-grid-color: #1e1e1e;
+$s-grid-background: #f1f1f1;
+
+.c-grid {
+  display: flex;
+  flex-direction: column;
+  &__row {
+    display: flex;
+    margin-top: -$s-grid-size/3;
+    &:nth-of-type(2n) {
+      margin-left: $s-grid-size/2;
+    }
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+  &__col {
+    margin-left: -1px;
+    &:first-of-type {
+      margin-left: 0;
+    }
+  }
+  &__content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    z-index: 2;
+    text-align: center;
+    color: $s-grid-color;
+  }
+
+  // Hextagon styles
+  &__hex {
+    position: relative;
+    width: $s-grid-size;
+    height: 17.32px;
+    background-color: $s-grid-background;
+    margin: 8.66px 0;
+    border-left: solid 1px $s-grid-color;
+    border-right: solid 1px $s-grid-color;
+
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      width: 21.21px;
+      height: 21.21px;
+      -webkit-transform: scaleY(0.5774) rotate(-45deg);
+      -ms-transform: scaleY(0.5774) rotate(-45deg);
+      transform: scaleY(0.5774) rotate(-45deg);
+      background-color: inherit;
+      left: 3.3934px;
+    }
+
+    &:before {
+      top: -10.6066px;
+      border-top: solid 1.4142px $s-grid-color;
+      border-right: solid 1.4142px $s-grid-color;
+    }
+
+    &:after {
+      bottom: -10.6066px;
+      border-bottom: solid 1.4142px $s-grid-color;
+      border-left: solid 1.4142px $s-grid-color;
+    }
+
+
+    cursor: pointer;
+    &:hover {
+      background-color: darken($s-grid-background, 25%);
+    }
+
+    &--red {
+      background-color: red;
+    }
+  }
+}

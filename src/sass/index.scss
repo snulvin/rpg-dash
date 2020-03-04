@@ -1,0 +1,67 @@
+@mixin all-directions($side-type, $gutters-map) {
+  @each $name, $value in $gutters-map {
+    &__#{$name} {
+      #{$side-type}: $value;
+    }
+  }
+  &-x {
+    @each $name, $value in $gutters-map {
+      &__#{$name} {
+        #{$side-type}-left: $value;
+        #{$side-type}-right: $value;
+      }
+    }
+  }
+  &-y {
+    @each $name, $value in $gutters-map {
+      &__#{$name} {
+        #{$side-type}-top: $value;
+        #{$side-type}-bottom: $value;
+      }
+    }
+  }
+  &-t {
+    @each $name, $value in $gutters-map {
+      &__#{$name} {
+        #{$side-type}-top: $value;
+      }
+    }
+  }
+  &-r {
+    @each $name, $value in $gutters-map {
+      &__#{$name} {
+        #{$side-type}-right: $value;
+      }
+    }
+  }
+  &-b {
+    @each $name, $value in $gutters-map {
+      &__#{$name} {
+        #{$side-type}-bottom: $value;
+      }
+    }
+  }
+  &-l {
+    @each $name, $value in $gutters-map {
+      &__#{$name} {
+        #{$side-type}-left: $value;
+      }
+    }
+  }
+}
+
+$s-gutters: (
+  auto: auto,
+  6: 30px,
+  5: 25px,
+  4: 20px,
+  3: 15px,
+  2: 10px,
+  1: 5px,
+  0: 0
+);
+
+@import "o-flex";
+@import "o-size";
+@import "o-mar";
+@import "o-pad";
