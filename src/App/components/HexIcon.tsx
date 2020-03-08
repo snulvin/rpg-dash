@@ -1,8 +1,13 @@
 import * as React from 'react';
-import {COLUMN_TYPE_CITY, COLUMN_TYPE_DUNGEON, COLUMN_TYPE_LIGHT_FOREST, IMatrixCol} from "../types/grid";
+import Column, {
+  COLUMN_TYPE_CITY,
+  COLUMN_TYPE_DUNGEON,
+  COLUMN_TYPE_LIGHT_FOREST,
+  COLUMN_TYPE_MOUNTAIN, COLUMN_TYPE_WETLANDS,
+} from "../types/column";
 
 interface IProps {
-  col: IMatrixCol;
+  col: Column;
 }
 
 function HexIcon({col}: IProps) {
@@ -17,6 +22,12 @@ function HexIcon({col}: IProps) {
   }
   if (col.type === COLUMN_TYPE_DUNGEON) {
     return <i className="fas fa-dungeon"/>
+  }
+  if (col.type === COLUMN_TYPE_WETLANDS) {
+    return <i className="fas fa-water"/>
+  }
+  if (col.type === COLUMN_TYPE_MOUNTAIN) {
+    return <i className="fas fa-mountain"/>
   }
   return (
     <div />

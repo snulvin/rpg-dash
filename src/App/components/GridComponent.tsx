@@ -1,16 +1,17 @@
 import * as React from 'react';
-import "./grid.scss";
-import {IGrid, IMatrixCol} from "./types/grid";
-import HexIcon from "./components/HexIcon";
+import "../grid.scss";
+import HexIcon from "./HexIcon";
+import Grid from "../types/grid";
+import Column from "../types/column";
 
 interface IProps {
-  grid: IGrid;
-  setSelectedCol: (col: IMatrixCol | null) => void;
+  grid: Grid;
+  setSelectedCol: (col: Column | null) => void;
 }
 
-function Grid({setSelectedCol, grid}: IProps) {
+function GridComponent({setSelectedCol, grid}: IProps) {
 
-  const handleSelectCol = (col: IMatrixCol) => () => {
+  const handleSelectCol = (col: Column) => () => {
     setSelectedCol(col);
   };
 
@@ -20,7 +21,7 @@ function Grid({setSelectedCol, grid}: IProps) {
         <div className="c-grid__row">
           {row.columns.map(col => (
             <div className="c-grid__col" onClick={handleSelectCol(col)}>
-              <div className="c-grid__hex">
+              <div className={`c-grid__hex c-grid__hex--level-${col.level}`}>
                 <div className="c-grid__content">
                   <HexIcon col={col} />
                 </div>
@@ -33,4 +34,4 @@ function Grid({setSelectedCol, grid}: IProps) {
   );
 }
 
-export default Grid;
+export default GridComponent;
