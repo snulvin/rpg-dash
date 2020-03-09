@@ -15,7 +15,7 @@ class Grid {
       ]),
     ]);
 
-    for (let y = 0; y < absY; y++) {
+    for (let y = 0; y < absY-1; y++) {
       if (grid.rows[0].columns.length < absX) {
         grid = Grid.addToExistingRows(grid);
       }
@@ -57,6 +57,15 @@ class Grid {
     grid.rows.push(newRow);
 
     return grid;
+  }
+
+  public setVisibility(visible: number[][]) {
+    for (let y = 0; y < visible.length; y++) {
+      for (let x = 0; x < visible[y].length; x++) {
+        this.rows[y].columns[x].revealed = visible[y][x] !== 0;
+      }
+    }
+    return this;
   }
 }
 

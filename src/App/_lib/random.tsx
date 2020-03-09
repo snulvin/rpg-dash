@@ -4,4 +4,8 @@ function random() {
   return x - Math.floor(x);
 }
 
+export function setSeed(seedSetter: number) {
+  seed = seedSetter;
+}
+
 export default random;
